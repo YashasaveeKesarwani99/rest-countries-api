@@ -13,6 +13,11 @@ const Filter = (props) => {
     e.preventDefault();
     return props.onclick(search);
   };
+
+  const onSelectHandler = (e) => {
+    e.preventDefault();
+    return props.onsubmit(e.target.value);
+  };
   return (
     <section className="filter">
       <form className="form-control">
@@ -31,13 +36,18 @@ const Filter = (props) => {
           Search
         </button>
         <div className="region-filter">
-          <select name="select" id="select" className="select">
+          <select
+            name="select"
+            id="select"
+            className="select"
+            onChange={(e) => onSelectHandler(e)}
+          >
             <option value="filter by region">Filter by region</option>
-            <option value="Africa">Africa</option>
-            <option value="America">America</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceana">Oceana</option>
+            <option value="eu">European Union</option>
+            <option value="efta">Europe free trade union</option>
+            <option value="pa">Pasific Alliance</option>
+            <option value="al">Arab League</option>
+            <option value="saarc">Saarc</option>
           </select>
         </div>
       </form>

@@ -7,12 +7,17 @@ export default function App() {
   const url = "https://restcountries.eu/rest/v2/all";
   const [countries, setCountries] = useState([]);
   const [name, setName] = useState("");
+  const [region, setRegion] = useState("");
   //storing searched country
   const onClickHandler = (event) => {
     setName(event);
     console.log("inApp", name);
   };
-
+  //storing countries by region
+  const onSelectHandler = (event) => {
+    setRegion(event);
+    console.log("inRegion", region);
+  };
   //function to call api data
   const fetchCountryData = async () => {
     const response = fetch(url);
@@ -27,14 +32,28 @@ export default function App() {
     console.log(countries);
   };
 
+  const specificRegionFetchCounrtyData = async () => {
+    const response = fetch(
+      `https://restcountries.eu/rest/v2/regionalbloc/${region}`
+    );
+    const countries = await (await response).json();
+    setCountries(countries);
+  };
+
   useEffect(() => {
     if (name === "") fetchCountryData();
-    else specificFetchCountryData();
+    else {
+      specificFetchCountryData();
+    }
   }, [name]);
+
+  useEffect(() => {
+    if (region !== "") specificRegionFetchCounrtyData();
+  }, [region]);
 
   return (
     <>
-      <Filter onclick={onClickHandler} />
+      <Filter onclick={onClickHandler} onsubmit={onSelectHandler} />
       <Countries countries={countries} />
     </>
   );
