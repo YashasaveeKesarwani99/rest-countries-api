@@ -3,6 +3,12 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 498px) {
+  .grid {
+    flex-flow: column-reverse;
+  }
+}
+
 .bigContainer {
   flex: 1 0 21%;
   margin: 5px;

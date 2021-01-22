@@ -40,3 +40,38 @@ input::placeholder {
   letter-spacing: 0.5px;
   width: 10%;
 }
+
+@media (max-width: 498px) {
+  .form-control input {
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+    width: 100%;
+    display: block;
+  }
+  .filter .region-filter .select {
+    margin-left: 5%;
+    background-color: #2b3743;
+    color: white;
+    padding: 8px;
+    width: 30%;
+    padding-right: 10%;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+  }
+
+  .button {
+    margin-left: 5%;
+    background-color: #2b3743;
+    border: none;
+    outline: none;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+    width: 20%;
+    display: block;
+  }
+}
