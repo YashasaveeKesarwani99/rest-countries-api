@@ -4,7 +4,7 @@ import Countries from "./components/countries";
 import Filter from "../src/components/filter";
 export default function App() {
   //fetching api data in parent class
-  const url = "https://restcountries.eu/rest/v2/all";
+  const url = "https://restcountries.com/v2/all";
   const [countries, setCountries] = useState([]);
   const [name, setName] = useState("");
   const [region, setRegion] = useState("");
@@ -26,7 +26,7 @@ export default function App() {
   };
 
   const specificFetchCountryData = async () => {
-    const response = fetch(`https://restcountries.eu/rest/v2/name/${name}`);
+    const response = fetch(`https://restcountries.com/v2/name/${name}`);
     const countries = await (await response).json();
     setCountries(countries);
     console.log(countries);
@@ -34,7 +34,7 @@ export default function App() {
 
   const specificRegionFetchCounrtyData = async () => {
     const response = fetch(
-      `https://restcountries.eu/rest/v2/regionalbloc/${region}`
+      `https://restcountries.com/v2/regionalbloc/${region}`
     );
     const countries = await (await response).json();
     setCountries(countries);
